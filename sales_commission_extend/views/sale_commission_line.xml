@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_sale_commission_line_inherit">
+            <field name="name">view.sale.commission.line.inherit</field>
+            <field name="model">sale.commission.line</field>
+            <field name="inherit_id" ref="bi_sales_commission_user_partner.commission_lines_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                     <button name="action_paid" states="draft" type="object" string="PAGAR"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="action_updates_state_paid" model="ir.actions.server">
+          <field name="name">PAGAR</field>
+          <field name="model_id" ref="bi_sales_commission_user_partner.model_sale_commission_line"/>
+          <field name="state">code</field>
+          <field name="code">
+              records.action_paid()
+          </field>
+        </record>
+    </data>
+</odoo>
