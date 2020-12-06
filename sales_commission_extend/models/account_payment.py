@@ -36,7 +36,7 @@ class AccountPayment(models.Model):
                     vals.append({
                         'payment_id': self.id,
                         'commission_level_id': lin.commission_level_id.id,
-                        'user_partner_id': lin.commission_level_id.id,
+                        'user_partner_id': lin.user_partner_id.id,
                     })
                 level = self.env['product.commission.level'].create(vals)
 
